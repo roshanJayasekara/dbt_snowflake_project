@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: bronze_listings
+    description: "Raw listings from the staging source"
+    columns:
+      - name: listing_id
+        tests:
+          - not_null
+          - unique
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: bronze_hosts
+    description: "Raw hosts from the staging source"
+    columns:
+      - name: host_id
+        tests:
+          - not_null
+          - unique
+      - name: created_at
+        tests:
+          - not_null
+
+  - name: bronze_bookings
+    description: "Raw bookings from the staging source"
+    columns:
+      - name: booking_id
+        tests:
+          - not_null
+          - unique
+      - name: listing_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('bronze_listings')
+              field: listing_id
+      - name: created_at
+        tests:
+          - not_null
