@@ -1,0 +1,61 @@
+# version: 2
+#
+# models:
+#   - name: gold_bookings_analytics
+#     description: "Comprehensive analytical table combining bookings, listings, and host data for analytics and reporting"
+#     columns:
+#       - name: booking_id
+#         description: "Unique identifier for the booking"
+#         tests:
+#           - not_null
+#           - unique
+#       - name: listing_id
+#         description: "Unique identifier for the listing"
+#         tests:
+#           - not_null
+#           - relationships:
+#               to: ref('bronze_listings')
+#               field: listing_id
+#       - name: booking_date
+#         description: "Date of the booking"
+#         tests:
+#           - not_null
+#       - name: booking_status
+#         description: "Status of the booking"
+#         tests:
+#           - not_null
+#           - accepted_values:
+#               values: ['confirmed', 'pending', 'cancelled']
+#       - name: total_price
+#         description: "Total price of the booking"
+#         tests:
+#           - not_null
+#       - name: booking_created_at
+#         description: "Timestamp when booking record was created"
+#       - name: host_id
+#         description: "Unique identifier for the host"
+#         tests:
+#           - not_null
+#           - relationships:
+#               to: ref('bronze_hosts')
+#               field: host_id
+#       - name: listing_name
+#         description: "Name of the listing"
+#       - name: room_type
+#         description: "Type of room (entire home, private room, shared room)"
+#       - name: listing_price
+#         description: "Price per night for the listing"
+#       - name: minimum_nights
+#         description: "Minimum number of nights required for booking"
+#       - name: availability_365
+#         description: "Number of days available in the next 365 days"
+#       - name: listing_created_at
+#         description: "Timestamp when listing record was created"
+#       - name: host_name
+#         description: "Name of the host"
+#       - name: host_email
+#         description: "Email address of the host"
+#       - name: host_phone
+#         description: "Phone number of the host"
+#       - name: host_created_at
+#         description: "Timestamp when host record was created"
