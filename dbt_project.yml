@@ -41,7 +41,7 @@ models:
 
     gold:
       +materialized: table
-      +schema: silver
+      +schema: gold
 
 
 flags:
