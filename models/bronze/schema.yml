@@ -34,8 +34,9 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('bronze_listings')
-              field: listing_id
+              arguments:
+                to: ref('bronze_listings')
+                field: listing_id
       - name: created_at
         tests:
           - not_null
