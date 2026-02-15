@@ -6,37 +6,48 @@ models:
     columns:
       - name: listing_id
         tests:
-          - not_null
-          - unique
+          - not_null:
+              tags: ['staging', 'critical']
+          - unique:
+              tags: ['staging', 'critical']
       - name: created_at
         tests:
-          - not_null
+          - not_null:
+              tags: ['staging']
 
   - name: bronze_hosts
     description: "Raw hosts from the staging source"
     columns:
       - name: host_id
         tests:
-          - not_null
-          - unique
+          - not_null:
+              tags: ['staging', 'critical']
+          - unique:
+              tags: ['staging', 'critical']
       - name: created_at
         tests:
-          - not_null
+          - not_null:
+              tags: ['staging']
 
   - name: bronze_bookings
     description: "Raw bookings from the staging source"
     columns:
       - name: booking_id
         tests:
-          - not_null
-          - unique
+          - not_null:
+              tags: ['staging', 'critical']
+          - unique:
+              tags: ['staging', 'critical']
       - name: listing_id
         tests:
-          - not_null
+          - not_null:
+              tags: ['staging', 'critical']
           - relationships:
               arguments:
                 to: ref('bronze_listings')
                 field: listing_id
+              tags: ['staging', 'critical']
       - name: created_at
         tests:
-          - not_null
+          - not_null:
+              tags: ['staging']
