@@ -7,22 +7,27 @@ models:
       - name: booking_id
         tests:
           - not_null:
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
           - unique:
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
       - name: booking_date
         tests:
           - not_null:
-              tags: ['staging']
+              config:
+                tags: ['staging']
       - name: listing_id
         tests:
           - not_null:
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
           - relationships:
               arguments:
                 to: ref('bronze_listings')
                 field: listing_id
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
   - name: silver_listings_hosts
     description: "Enriched listings with host details from `bronze_listings` and `bronze_hosts`"
     columns:
@@ -30,9 +35,11 @@ models:
         description: "Unique identifier for the listing"
         tests:
           - not_null:
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
           - unique:
-              tags: ['staging', 'critical']
+              config:
+                tags: ['staging', 'critical']
 #     - name: host_id
 #      description: "Unique identifier for the host"
 #        tests:
