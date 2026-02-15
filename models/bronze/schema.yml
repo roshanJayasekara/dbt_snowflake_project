@@ -60,4 +60,5 @@ models:
       - name: created_at
         tests:
           - not_null:
-              tags: ['staging']
+              config:
+                tags: ['staging']
