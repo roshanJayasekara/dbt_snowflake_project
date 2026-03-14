@@ -17,8 +17,8 @@ select
     booking_amount as base_price,
     cleaning_fee,
     service_fee,
-    {# booking_status,
-    upper(booking_status) as status_code, #}
+    booking_status,
+    upper(booking_status) as status_code,
     created_at
 from source
 
